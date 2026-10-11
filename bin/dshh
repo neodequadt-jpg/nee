@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# dsh-headless wrapper — propagates OMNIROUTE_API_KEY, bypasses dead proxy
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+unset HTTP_PROXY HTTPS_PROXY ALL_PROXY http_proxy https_proxy all_proxy
+export NO_PROXY="127.0.0.1,localhost,::1"
+export no_proxy="127.0.0.1,localhost,::1"
+export OMNIROUTE_API_KEY="sk-84454d30f22bfcb1-411927-596928fc"
+
+exec npx @deepseek-ai/dsh --profile headless "$@"
