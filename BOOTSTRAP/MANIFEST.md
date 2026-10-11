@@ -36,3 +36,7 @@ ACTIVE (bet-analyzer)
 ## METHODOLOGY
 ARTEM — Research Program of Reproducible Engineering
 Workflow: Research → Criticism → Evidence → ADR → RFC → Foundation → Specification → Validation → Implementation
+
+## METHODOLOGY
+ARTEM-CORE: ../ARTEM-CORE.md (5 rules, 3 artifacts, 1 cycle)
+Legacy: ../ARTEM-ARCHIVE/
