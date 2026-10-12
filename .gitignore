@@ -5,3 +5,7 @@ logs/*.log
 .env
 .env.*
 !.env.example
+
+# dsh-loop runtime
+logs/dsh-loop-*/
+features/
