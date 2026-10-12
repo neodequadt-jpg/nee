@@ -1,21 +1,20 @@
 # CURRENT ENGINEERING GOAL
 
-ID: G-0011
-Title: Next module tests or resolve_all
+ID: G-0012
+Title: Run resolver + cmd_stats tests
 
-## G-0010: COMPLETED
-- [x] _get_session — 4 tests
-- [x] _fetch_events_for_date — 8 tests
-- [x] integration reuse session — 2 tests
-- [x] EVR-0011 PASS (14 tests, 2 DSH bugs fixed)
-- scoring/resolver.py: 6/7 functions covered
+## G-0011: COMPLETED
+- [x] /stats command added (EVR-0012 PASS)
+- [x] 185 tests passed
+- [x] DSH write-access documented
 
-## G-0011 options
-A) resolve_all — requires tmp_path + mocking filesystem
-B) next module (tg_bot handlers, scoring/portfolio)
-C) pause, review overall coverage
+## G-0012 Next
+1. Run resolve_all() — populate data/backtest/results/
+2. Verify cmd_stats on real data
+3. Unit tests for cmd_stats (tmp_path)
+4. Optional: dispatch(/stats) test
 
 ## Rules
-- DSH generates ~85% correct; verify each
+- DSH WRITES to files — git status after each dshh
 - py_compile after each patch
 - One step = one commit
