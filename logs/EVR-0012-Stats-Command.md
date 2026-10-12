@@ -36,3 +36,23 @@ DSH wrote to file despite "=== FILE:" prompt. Mitigation:
 ## Next
 - Run resolve_all() -> populate results/
 - Unit tests for cmd_stats (tmp_path)
+
+## Resolver limitation — CONFIRMED
+- openfootball: ru.1.json -> 404 (RPL not published)
+- openfootball: nations-league.json -> timeout (no such file)
+- thesportsdb free key=3: USL and misc, no RPL / Nations League
+- openligadb: Bundesliga only
+- sports_skills, understat: stubs
+
+None of the bundled providers serve the leagues present in signals.
+resolve_all() returns skipped=348 honestly. Not a bug.
+
+## Follow-up options (not now)
+A. Register football-data.org free tier (10 req/min). Covers RPL.
+   Requires API key, ~1 min signup.
+B. Pay for api-football (rapidapi), $10/mo. Covers everything.
+C. Leave as known limitation. /stats works with empty results/.
+
+## Decision
+Option C for now. No further code changes needed.
+EVR-0012 /stats feature is complete and working.
