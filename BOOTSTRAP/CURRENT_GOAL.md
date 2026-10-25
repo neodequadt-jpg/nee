@@ -1,20 +1,20 @@
 # CURRENT ENGINEERING GOAL
 
-ID: G-0012
-Title: Run resolver + cmd_stats tests
+No active goal.
 
-## G-0011: COMPLETED
-- [x] /stats command added (EVR-0012 PASS)
-- [x] 185 tests passed
-- [x] DSH write-access documented
+## Recently closed
+- G-0014: Bonus snapshot cron + Telegram alert — 2026-10-12
+  - Commits: 61e24db, 757e6f3, 02c100f
+  - Timer: bonus-cron.timer (00/06/12/18:05 MSK, Linger=yes)
+  - Baseline: 277 → 293 passed
+  - Evidence: EVR-0025, EVR-0026
 
-## G-0012 Next
-1. Run resolve_all() — populate data/backtest/results/
-2. Verify cmd_stats on real data
-3. Unit tests for cmd_stats (tmp_path)
-4. Optional: dispatch(/stats) test
+## Candidates
+- G-0015: Wire /bonuses in tg_bot (inline buttons)
+- G-0016: API-Football fallback для resolver (нужен free key)
 
-## Rules
-- DSH WRITES to files — git status after each dshh
-- py_compile after each patch
-- One step = one commit
+## Tech debt
+- EVR-0023 отсутствует (commit 09a170a ссылается)
+- OmniRoute не поднимается при boot (autostart ломается при headless)
+- OMNIROUTE_API_KEY засвечен в ~/NEE/bin/dshh → ротировать, вынести в ~/.bet_env
+- ALL_PROXY=socks://45.11.24.103:1080 в env — VPS SOCKS не отвечает, рудимент

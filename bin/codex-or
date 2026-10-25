@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+unset ALL_PROXY all_proxy HTTP_PROXY http_proxy HTTPS_PROXY https_proxy
+export NO_PROXY="127.0.0.1,localhost,::1"
+export no_proxy="$NO_PROXY"
+
+if [ -f "$HOME/.bet_env" ]; then
+  set -a; . "$HOME/.bet_env"; set +a
+fi
+: "${OMNI_KEY:?OMNI_KEY not set}"
+
+# Использовать проектный конфиг, не глобальный ~/.codex
+export CODEX_HOME=/home/jail/BET-ANALYZER/.codex-home
+
+exec /home/jail/BET-ANALYZER/codex --no-daemon "$@"

@@ -1,0 +1,2 @@
+One atomic step = one commit. Do not commit unrelated changes.
+Check git status --short before and after.

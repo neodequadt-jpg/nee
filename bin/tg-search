@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+[ -f "$HOME/.bet_env" ] && { set -a; . "$HOME/.bet_env"; set +a; }
+: "${TG_API_ID:?TG_API_ID not set}"
+: "${TG_API_HASH:?TG_API_HASH not set}"
+exec python3 "$HOME/NEE/bin/tg-search.py" "$@"

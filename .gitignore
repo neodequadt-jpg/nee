@@ -9,3 +9,10 @@ logs/*.log
 # dsh-loop runtime
 logs/dsh-loop-*/
 features/
+
+# backups
+*.bak.*
+*.bak
+
+# env backups (defense in depth)
+.env.bak.*

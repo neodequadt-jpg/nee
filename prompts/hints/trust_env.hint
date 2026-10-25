@@ -1,0 +1,2 @@
+HTTP MUST use requests.Session(trust_env=False, timeout=15, follow_redirects=True).
+Env http_proxy=127.0.0.1:8118 is DEAD; without trust_env=False you get exit 7.

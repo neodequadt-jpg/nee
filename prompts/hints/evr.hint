@@ -1,0 +1,2 @@
+Artifact: write EVR-<NNNN>-<slug>.md to WORKSPACE ROOT only.
+Do NOT create NEE/ subdir. Do NOT write to NEE-logs/ (sandbox read-only).

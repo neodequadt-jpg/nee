@@ -1,0 +1,24 @@
+# CURRENT ENGINEERING GOAL
+
+ID: G-0012
+Title: Run resolver + cmd_stats tests
+
+## G-0011: COMPLETED
+- [x] /stats command added (EVR-0012 PASS)
+- [x] 185 tests passed
+- [x] DSH write-access documented
+
+## G-0012 Progress
+1. [x] Run resolve_all() — 348/348 resolved (EVR-0018)
+    Commits: e8cdbb7 (adapter), bfbd925 (TTL), 775e049 (wire)
+2. [x] Verify cmd_stats on real data (EVR-0019: 348 resolved, winrate 32.8%)
+3. [x] Unit tests for cmd_stats (EVR-0020: 9 tests, 207->216 passed)
+4. [ ] Optional: dispatch(/stats) test
+
+## Next step
+Step 4 (optional): dispatch(/stats) test. Then close G-0012.
+
+## Rules
+- DSH WRITES to files — git status after each dshh
+- py_compile after each patch
+- One step = one commit

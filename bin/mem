@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# mem — мини-память. Просто читай и дописывай.
+set -euo pipefail
+MEM="$HOME/.memory"
+TODAY="$MEM/mood/$(date +%Y-%m-%d).md"
+PERSON="$MEM/people/${MEM_WHO:-jail}.md"
+
+case "${1:-}" in
+  get)
+    echo "=== $PERSON ==="; cat "$PERSON" 2>/dev/null || echo "(нет)"
+    echo; echo "=== $TODAY ==="; cat "$TODAY" 2>/dev/null || echo "(нет)"
+    ;;
+  mood)
+    shift; echo "- $(date +%H:%M) $*" >> "$TODAY"
+    echo "ok → $TODAY"
+    ;;
+  person)
+    shift; echo "- $*" >> "$PERSON"
+    echo "ok → $PERSON"
+    ;;
+  edit)
+    "${EDITOR:-nano}" "${2:-$PERSON}"
+    ;;
+  *)
+    cat <<H
+mem get              показать всё
+mem mood <текст>     дописать в сегодня
+mem person <текст>   дописать в досье
+mem edit [файл]      открыть в редакторе
+H
+    ;;
+esac

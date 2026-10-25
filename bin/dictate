@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+NDIR=/tmp/nerd-dictation
+MODEL=$HOME/.config/nerd-dictation/model
+PY=$HOME/.venv-vosk/bin/python
+MIC=alsa_input.pci-0000_00_09.2.analog-stereo.3
+
+if pgrep -f "$NDIR/nerd-dictation begin" >/dev/null; then
+  "$PY" "$NDIR/nerd-dictation" end
+  echo "OFF"
+else
+  "$PY" "$NDIR/nerd-dictation" begin \
+    --vosk-model-dir="$MODEL" \
+    --pulse-device-name="$MIC" &
+  echo "ON"
+fi

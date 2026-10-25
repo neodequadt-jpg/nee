@@ -1,11 +1,24 @@
 #!/usr/bin/env bash
-# dsh-headless wrapper — propagates OMNIROUTE_API_KEY, bypasses dead proxy
+# dsh-headless wrapper — reads OMNIROUTE_API_KEY from ~/.bet_env (no hardcoded secrets)
+set -euo pipefail
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
+# Unset dead proxy vars (env has broken ALL_PROXY=socks://45.11.24.103:1080)
 unset HTTP_PROXY HTTPS_PROXY ALL_PROXY http_proxy https_proxy all_proxy
 export NO_PROXY="127.0.0.1,localhost,::1"
 export no_proxy="127.0.0.1,localhost,::1"
-export OMNIROUTE_API_KEY="sk-84454d30f22bfcb1-411927-596928fc"
+
+# Load OMNIROUTE_API_KEY from ~/.bet_env (chmod 600)
+if [ -f "$HOME/.bet_env" ]; then
+  set -a
+  # shellcheck disable=SC1090
+  . "$HOME/.bet_env"
+  set +a
+fi
+
+: "${OMNIROUTE_API_KEY:?OMNIROUTE_API_KEY not set in ~/.bet_env}"
+export OMNIROUTE_API_KEY
 
 exec npx @deepseek-ai/dsh --profile headless "$@"
