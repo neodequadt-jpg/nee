@@ -3,6 +3,9 @@
 No active goal.
 
 ## Recently closed
+- G-0022: stats window fix — 2026-10-26 (EVR-0040)
+  - cmd_stats filters by kickoff (ISO or DD.MM HH:MM), preserves _resolved_at
+  - resolver no longer overwrites _resolved_at on re-runs
 - G-0021: housekeeping — 2026-10-26 (EVR-0037)
   - Tech debt triaged (7 tags); 2 stale entries removed
   - ~/.bet_env.bak.* removed (no current keys)
