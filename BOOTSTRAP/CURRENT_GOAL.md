@@ -3,6 +3,9 @@
 No active goal.
 
 ## Recently closed
+- G-0021: housekeeping — 2026-10-26 (EVR-0037)
+  - Tech debt triaged (7 tags); 2 stale entries removed
+  - ~/.bet_env.bak.* removed (no current keys)
 - G-0020: ai/* model swap — 2026-10-26 (EVR-0036)
   - gemini/… (500) -> openrouter/openai/gpt-4o-mini (200, json_object OK)
 - G-0018: STATE.md sync — 2026-10-26 (EVR-0035)
@@ -20,9 +23,15 @@ No active goal.
 - G-0015: closed (already-done in ab0eab9) — see EVR-0031
 - G-0016: API-Football fallback для resolver (нужен free key)
 
-## Tech debt
-- OmniRoute: 2 orphan active keys (bet-analyze, CLI Auto-Key) — отозвать
-- EVR-0023 отсутствует (commit 09a170a ссылается)
-- OmniRoute не поднимается при boot (autostart ломается при headless)
-- OMNIROUTE_API_KEY засвечен в ~/NEE/bin/dshh → ротировать, вынести в ~/.bet_env
-- ALL_PROXY=socks://45.11.24.103:1080 в env — VPS SOCKS не отвечает, рудимент
+## Tech debt (triaged 2026-10-26)
+- [open] OmniRoute autostart fails headless (systemd/supervisor) — real debt
+- [accepted] OmniRoute: 2 orphan active keys (bet-analyze last_used 10-12,
+  CLI Auto-Key never) — revoke via /dashboard; no admin key so manual
+- [accepted] EVR-0023 lost (commit 09a170a references) — not reconstructable
+- [accepted] ALL_PROXY=socks://45.11.24.103:1080 in env — dead, harmless
+  (clients use trust_env=False)
+- [deferred] gemini/gemini-3.1-flash-lite-preview 500 in OmniRoute — G-0022
+  (ai/* on gpt-4o-mini, not blocking)
+- [deferred] DSH plugin EVR-0002 PARTIAL — G-0019 (separate track)
+- [resolved] dshh reads OMNIROUTE_API_KEY from ~/.bet_env (was hardcoded) —
+  EVR-0001/0002
