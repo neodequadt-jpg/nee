@@ -3,6 +3,8 @@
 No active goal.
 
 ## Recently closed
+- G-0018: STATE.md sync — 2026-10-26 (EVR-0035)
+  - baseline 293 -> 319/7, LLM block, Verified 0031..0034
 - G-0017: OmniRoute auth — 2026-10-26
   - Key: Bet_analyzer (0ba95930…), plaintext в api_keys
   - Evidence: EVR-0034 (HTTP 200, count=1132, bet-edge-* PRESENT)
