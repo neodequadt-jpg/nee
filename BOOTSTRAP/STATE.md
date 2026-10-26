@@ -13,8 +13,8 @@ BET-ANALYZER
 
 ## LLM (verified 2026-10-26)
 - Chat models (tg_bot.py:91-92): bet-edge-primary, bet-edge-free via OmniRoute
-- ai/*.py DEFAULT_MODEL: gemini/gemini-3.1-flash-lite-preview
-  (Gemini direct BLOCKED: EEA requires billing; Step C pending, see G-0020)
+- ai/*.py DEFAULT_MODEL: openrouter/openai/gpt-4o-mini (verified 2026-10-26)
+  (gemini/gemini-3.1-flash-lite-preview -> HTTP 500 via OmniRoute; EVR-0036)
 - OmniRoute auth: Bet_analyzer key in ~/.bet_env (600), /v1/models -> 200,
   count=1132, bet-edge-primary/free PRESENT (EVR-0034)
 - Fallback: none

@@ -3,6 +3,8 @@
 No active goal.
 
 ## Recently closed
+- G-0020: ai/* model swap — 2026-10-26 (EVR-0036)
+  - gemini/… (500) -> openrouter/openai/gpt-4o-mini (200, json_object OK)
 - G-0018: STATE.md sync — 2026-10-26 (EVR-0035)
   - baseline 293 -> 319/7, LLM block, Verified 0031..0034
 - G-0017: OmniRoute auth — 2026-10-26
