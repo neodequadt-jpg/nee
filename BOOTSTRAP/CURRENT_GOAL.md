@@ -15,7 +15,7 @@ No active goal.
   - Evidence: EVR-0025, EVR-0026
 
 ## Candidates
-- G-0015: Wire /bonuses in tg_bot (inline buttons)
+- G-0015: closed (already-done in ab0eab9) — see EVR-0031
 - G-0016: API-Football fallback для resolver (нужен free key)
 
 ## Tech debt
