@@ -28,8 +28,7 @@ No active goal.
 - [accepted] ~/.codex-home-from-BET-ANALYZER-20261026 (115M) retains dead-key transcript; delete after review
 - [resolved] P1 OMNI_KEY leak in .codex-home transcript (15 oct) — rotated 2026-10-26, EVR-0038
 - [open] OmniRoute autostart fails headless (systemd/supervisor) — real debt
-- [accepted] OmniRoute: 2 orphan active keys (bet-analyze last_used 10-12,
-  CLI Auto-Key never) — revoke via /dashboard; no admin key so manual
+- [resolved] OmniRoute orphan keys (bet-analyze, CLI Auto-Key, old Bet_analyzer) revoked 2026-10-26 (EVR-0038); only Bet_analyzer-2026-10-26b active
 - [accepted] EVR-0023 lost (commit 09a170a references) — not reconstructable
 - [accepted] ALL_PROXY=socks://45.11.24.103:1080 in env — dead, harmless
   (clients use trust_env=False)
