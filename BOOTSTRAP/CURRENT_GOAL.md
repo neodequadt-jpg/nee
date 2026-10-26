@@ -24,6 +24,9 @@ No active goal.
 - G-0016: API-Football fallback для resolver (нужен free key)
 
 ## Tech debt (triaged 2026-10-26)
+- [open] dashboard password weak, bound to 127.0.0.1; rotate via reset-password (getpass)
+- [accepted] ~/.codex-home-from-BET-ANALYZER-20261026 (115M) retains dead-key transcript; delete after review
+- [resolved] P1 OMNI_KEY leak in .codex-home transcript (15 oct) — rotated 2026-10-26, EVR-0038
 - [open] OmniRoute autostart fails headless (systemd/supervisor) — real debt
 - [accepted] OmniRoute: 2 orphan active keys (bet-analyze last_used 10-12,
   CLI Auto-Key never) — revoke via /dashboard; no admin key so manual
