@@ -3,6 +3,11 @@
 No active goal.
 
 ## Recently closed
+- G-0042: reverse value direction (Shin Pinnacle, Fonbet value) — 2026-11-09 (EVR-0056)
+  - scoring/devig.py: shin_devig + multiplicative fallback
+  - evaluate_value: fair=Shin(Pinnacle), value candidate=Fonbet
+  - synthetic PASS: draw@Fonbet 4.5 fair 4.32 EV+4.2%
+  - real 215 matches 0 value (Fonbet follows Pinnacle on top-5; correct)
 - G-0040: RU→EN aliases top-5 + Ligue 1 key — 2026-11-09 (EVR-0055)
   - 96 aliases (EPL/La Liga/Serie A/Bundesliga/Ligue 1)
   - +soccer_france_ligue_one Pinnacle key
@@ -53,6 +58,9 @@ No active goal.
   - Evidence: EVR-0025, EVR-0026
 
 ## Candidates
+- G-0043: add Betfair/odds-api.io as second sharp (value source, not just Fonbet follow)
+- G-0045: add soccer_russia_premier_league Pinnacle key (RPL value source)
+- G-0046: add Fonbet to registry with trust_score=0.75 (currently trust=0.5, deal_score низкий)
 - G-0042: reverse value direction (Pinnacle-fair as true_prob, Fonbet as soft value).
   Current evaluate_value uses per_bk[Pinnacle]=Fonbet-only fair → value in sharp Pinnacle
   = arbitrage, not soft-vs-sharp value. confidence 0.50 marks it. Not P0, but risky.
@@ -60,7 +68,7 @@ No active goal.
 - G-0016: API-Football fallback для resolver (нужен free key)
 
 ## Tech debt (triaged 2026-10-26)
-- [accepted] A40: evaluate_value can report value in sharp (Pinnacle) via soft-side fair → arbitrage, not value; low confidence 0.50
+- [resolved] A40: evaluate_value value in sharp = arbitrage; fixed in G-0042 (EVR-0056: Shin Pinnacle fair, Fonbet value)
 - [accepted] A37: dshh sandbox has no .venv/bookmakers.* — python probes only local, dshh only grep/read/new-file
 - [accepted] A18: restart bet-edge-bot after tg_bot.py edits (A18 confirmed ×2 this session)
 - [accepted] dshh+gpt-4o-mini rewrote tg_bot.py (A36, 2026-11-08), recovered via git checkout; dshh restricted to probe/new-file/EVR only
