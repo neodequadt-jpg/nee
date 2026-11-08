@@ -3,6 +3,13 @@
 No active goal.
 
 ## Recently closed
+- G-0040: RU→EN aliases top-5 + Ligue 1 key — 2026-11-09 (EVR-0055)
+  - 96 aliases (EPL/La Liga/Serie A/Bundesliga/Ligue 1)
+  - +soccer_france_ligue_one Pinnacle key
+  - France 9/9 sources=2; cmd_value 195 matches, 2 value bets
+- G-0039: expand Fonbet window 48h→168h, cap 10→50 — 2026-11-08 (EVR-0053) [PARTIAL]
+  - fonbet today 30→150, total events 113→217
+  - EPL/La Liga/Serie A still sources=1 (RU≠EN names, need G-0040)
 - G-0034: raise Pinnacle ttl 300→900 — 2026-11-08 (EVR-0052)
   - 7 keys: 84 req/hour -> 28 req/hour (3× less quota burn)
   - x-requests-remaining 384, quota would exhaust in <1 day at ttl=300
