@@ -3,6 +3,9 @@
 No active goal.
 
 ## Recently closed
+- G-0028: _sanitize_error coverage — 2026-11-08 (EVR-0046)
+  - 4 log calls wrapped: 1960, 2489 (P2), 2547, 2550
+  - dsh-orch.sh probe: dshh returned reasoning (A4), fix manual
 - G-0027: STATE.md sync — 2026-11-08 (EVR-0045)
   - HEAD -> 592c79b, +G-0020..G-0026, 2026-11-08 block
 - G-0026: isolate resolver test + dummy OMNI_KEY — 2026-11-08 (EVR-0044)
