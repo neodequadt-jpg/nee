@@ -33,6 +33,7 @@ No active goal.
 - G-0016: API-Football fallback для resolver (нужен free key)
 
 ## Tech debt (triaged 2026-10-26)
+- [accepted] dsh-orch.sh: 4 minor bugs (manage_hints unvalidated, show_history empty, git add unquoted, echo -e) — low risk, not blocking (P1+P2 fixed in 6ad57fb)
 - [open] dashboard password weak, bound to 127.0.0.1; rotate via reset-password (getpass)
 - [accepted] ~/.codex-home-from-BET-ANALYZER-20261026 (115M) retains dead-key transcript; delete after review
 - [resolved] P1 OMNI_KEY leak in .codex-home transcript (15 oct) — rotated 2026-10-26, EVR-0038
