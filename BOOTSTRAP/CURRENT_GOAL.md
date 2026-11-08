@@ -3,6 +3,9 @@
 No active goal.
 
 ## Recently closed
+- G-0029: STATE.md sync — 2026-11-08 (EVR-0047)
+  - HEAD -> 8d31b7f, +G-0028, +_sanitize_error in 2026-11-08
+  - A35: close-скрипт должен включать STATE.md sync
 - G-0028: _sanitize_error coverage — 2026-11-08 (EVR-0046)
   - 4 log calls wrapped: 1960, 2489 (P2), 2547, 2550
   - dsh-orch.sh probe: dshh returned reasoning (A4), fix manual

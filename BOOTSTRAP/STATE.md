@@ -74,6 +74,8 @@ BET-ANALYZER
   Cron: generate-signals.sh (11:00 MSK)
 - G-0026: COMPLETED 2026-11-08 (EVR-0044)
   Test isolation: empty tempdir + dummy OMNI_KEY
+- G-0028: COMPLETED 2026-11-08 (EVR-0046)
+  4 log calls wrapped in _sanitize_error: 1960, 2489, 2547, 2550
 
 ## 2026-10-12 (evening)
 - G-0014 closed: bonus_cron.py + systemd timer (61e24db, 757e6f3, 02c100f)
@@ -90,8 +92,9 @@ BET-ANALYZER
 - G-0015 closed (already-done); G-0017 closed (EVR-0034)
 
 ## 2026-11-08
-- HEAD BET-ANALYZER: 592c79b (test isolation, pipeline fix)
+- HEAD BET-ANALYZER: 8d31b7f (test isolation, pipeline fix, _sanitize_error)
 - Baseline: 319 passed, 7 skipped, 2 deselected
 - Pipeline: fetch_real_today (Fonbet) + Pinnacle (EVR-0042)
 - Cron: resolve-signals (20:30), generate-signals (11:00)
 - Tests: isolated from network, dummy OMNI_KEY (EVR-0044)
+- Security: 4 log calls use _sanitize_error (EVR-0046, commit 8d31b7f)
