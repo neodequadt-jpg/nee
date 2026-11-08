@@ -4,6 +4,7 @@ set -euo pipefail
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  nvm use 24 >/dev/null 2>&1 || true
 
 # Unset dead proxy vars (env has broken ALL_PROXY=socks://45.11.24.103:1080)
 unset HTTP_PROXY HTTPS_PROXY ALL_PROXY http_proxy https_proxy all_proxy
@@ -21,4 +22,4 @@ fi
 : "${OMNIROUTE_API_KEY:?OMNIROUTE_API_KEY not set in ~/.bet_env}"
 export OMNIROUTE_API_KEY
 
-exec npx @deepseek-ai/dsh --profile headless "$@"
+exec npx --yes @deepseek-ai/dsh@alpha --profile headless "$@"
