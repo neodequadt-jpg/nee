@@ -3,6 +3,9 @@
 No active goal.
 
 ## Recently closed
+- G-0031: parse F_DRAW in fetch_real_today — 2026-11-08 (EVR-0050)
+  - draw consensus now possible for all football (non-RPL too)
+  - 0 new HTTP calls; 319/7; 2 files +3/-2
 - G-0030: /start + /help in Telegram menu — 2026-11-08 (EVR-0049)
   - 2 tuples added to _set_bot_menu commands list
   - A36: dshh+gpt-4o-mini rewrote whole file, recovered via git checkout
