@@ -3,6 +3,8 @@
 No active goal.
 
 ## Recently closed
+- G-0027: STATE.md sync — 2026-11-08 (EVR-0045)
+  - HEAD -> 592c79b, +G-0020..G-0026, 2026-11-08 block
 - G-0026: isolate resolver test + dummy OMNI_KEY — 2026-11-08 (EVR-0044)
   - test_resolve_all_shape: empty tempdir, no footbolno timeout
   - conftest: sk-test-dummy OMNI_KEY at EOF (EVR-0032 side-effect)

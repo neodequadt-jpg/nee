@@ -62,6 +62,18 @@ BET-ANALYZER
   cmd_bonuses:2012, dispatch:2147, callback:2201, keyboard:292/319, welcome:348
 - G-0017: COMPLETED 2026-10-26 (EVR-0034)
   OmniRoute auth: Bet_analyzer key in ~/.bet_env (600); /v1/models 200, count=1132
+- G-0020: COMPLETED 2026-10-26 (EVR-0036)
+  ai/* -> openrouter/openai/gpt-4o-mini (json_object OK)
+- G-0021: COMPLETED 2026-10-26 (EVR-0037)
+  Tech debt triaged; .bet_env backups removed
+- G-0022: COMPLETED 2026-10-26 (EVR-0040)
+  Stats window by kickoff (ISO or DD.MM HH:MM)
+- G-0024: COMPLETED 2026-11-08 (EVR-0042)
+  Pipeline: fetch_real_today + OddsEvent converter
+- G-0025: COMPLETED 2026-11-08 (EVR-0043)
+  Cron: generate-signals.sh (11:00 MSK)
+- G-0026: COMPLETED 2026-11-08 (EVR-0044)
+  Test isolation: empty tempdir + dummy OMNI_KEY
 
 ## 2026-10-12 (evening)
 - G-0014 closed: bonus_cron.py + systemd timer (61e24db, 757e6f3, 02c100f)
@@ -76,3 +88,10 @@ BET-ANALYZER
 - OmniRoute auth fixed: Bet_analyzer key (0ba95930…) from api_keys
 - .omniroute/.env chmod 600 (was 644)
 - G-0015 closed (already-done); G-0017 closed (EVR-0034)
+
+## 2026-11-08
+- HEAD BET-ANALYZER: 592c79b (test isolation, pipeline fix)
+- Baseline: 319 passed, 7 skipped, 2 deselected
+- Pipeline: fetch_real_today (Fonbet) + Pinnacle (EVR-0042)
+- Cron: resolve-signals (20:30), generate-signals (11:00)
+- Tests: isolated from network, dummy OMNI_KEY (EVR-0044)
