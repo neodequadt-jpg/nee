@@ -3,6 +3,9 @@
 No active goal.
 
 ## Recently closed
+- G-0025: automate daily signals — 2026-11-08 (EVR-0043)
+  - generate-signals.sh + cron 11:00 MSK
+  - text fixed (Smarkets -> Pinnacle)
 - G-0022: stats window fix — 2026-10-26 (EVR-0040)
   - cmd_stats filters by kickoff (ISO or DD.MM HH:MM), preserves _resolved_at
   - resolver no longer overwrites _resolved_at on re-runs
