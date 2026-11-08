@@ -3,6 +3,9 @@
 No active goal.
 
 ## Recently closed
+- G-0026: isolate resolver test + dummy OMNI_KEY — 2026-11-08 (EVR-0044)
+  - test_resolve_all_shape: empty tempdir, no footbolno timeout
+  - conftest: sk-test-dummy OMNI_KEY at EOF (EVR-0032 side-effect)
 - G-0025: automate daily signals — 2026-11-08 (EVR-0043)
   - generate-signals.sh + cron 11:00 MSK
   - text fixed (Smarkets -> Pinnacle)
