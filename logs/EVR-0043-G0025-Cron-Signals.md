@@ -19,7 +19,11 @@ Date: 2026-11-08
 tail -5 ~/logs/signals.log -> signals text present
 ls data/backtest/signals/ -> new file exists
 crontab -l -> job present
-pytest -q -> 319 passed, 7 skipped
+pytest -q -> 318 passed, 7 skipped, 1 failed
+  FAILED test_resolver.py::test_resolve_all_shape
+  Причина: ConnectTimeout к footbolno.ru (реальный сетевой вызов в тесте,
+  не замокан). Это environmental fail, не регрессия от текста Smarkets -> Pinnacle.
+  Требуется изоляция сети в тесте (отдельная цель).
 
 ## Result
 PASS.
