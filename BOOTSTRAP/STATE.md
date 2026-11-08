@@ -76,6 +76,12 @@ BET-ANALYZER
   Test isolation: empty tempdir + dummy OMNI_KEY
 - G-0028: COMPLETED 2026-11-08 (EVR-0046)
   4 log calls wrapped in _sanitize_error: 1960, 2489, 2547, 2550
+- G-0039: PARTIAL 2026-11-08 (EVR-0053)
+  Fonbet window 48h->168h; top-5 in range but sources=1 (RU≠EN)
+- G-0040: COMPLETED 2026-11-09 (EVR-0055)
+  96 RU→EN aliases + _strip_diacritics; Ligue 1 key; France 9/9 sources=2
+- G-0041: COMPLETED 2026-11-08 (EVR-0054)
+  Fonbet window 168h->360h (EPL at 304h)
 - G-0030: COMPLETED 2026-11-08 (EVR-0049)
   /start and /help added to _set_bot_menu commands list; verified via getMyCommands
 
@@ -94,10 +100,19 @@ BET-ANALYZER
 - G-0015 closed (already-done); G-0017 closed (EVR-0034)
 
 ## 2026-11-08
-- HEAD BET-ANALYZER: daa37ae (test isolation, pipeline fix, _sanitize_error, /start+/help in menu)
+- HEAD BET-ANALYZER: 4bccb6e (RU→EN aliases, window 360h, _sanitize_error, /start+/help)
 - Baseline: 319 passed, 7 skipped, 2 deselected
 - Pipeline: fetch_real_today (Fonbet) + Pinnacle (EVR-0042)
 - Cron: resolve-signals (20:30), generate-signals (11:00)
 - Tests: isolated from network, dummy OMNI_KEY (EVR-0044)
 - Security: 4 log calls use _sanitize_error (EVR-0046, commit 8d31b7f)
 - Bot menu: /start, /help added (EVR-0049, commit daa37ae); dshh A36 incident (rewrote file, recovered)
+
+## 2026-11-09
+- HEAD BET-ANALYZER: 4bccb6e
+- Baseline: 319 passed, 7 skipped, 2 deselected
+- Pipeline: 195 matches (was 113), top-5 sources=2
+- cmd_value: 2 value bets (FIRST non-zero in project history)
+- Top-5 RU→EN aliases (96 clubs), _strip_diacritics (Atlético/Köln/Alavés)
+- Ligue 1 Pinnacle key added (was missing)
+- A18: restart bet-edge-bot after tg_bot.py changes (process holds old code)

@@ -53,10 +53,16 @@ No active goal.
   - Evidence: EVR-0025, EVR-0026
 
 ## Candidates
+- G-0042: reverse value direction (Pinnacle-fair as true_prob, Fonbet as soft value).
+  Current evaluate_value uses per_bk[Pinnacle]=Fonbet-only fair → value in sharp Pinnacle
+  = arbitrage, not soft-vs-sharp value. confidence 0.50 marks it. Not P0, but risky.
 - G-0015: closed (already-done in ab0eab9) — see EVR-0031
 - G-0016: API-Football fallback для resolver (нужен free key)
 
 ## Tech debt (triaged 2026-10-26)
+- [accepted] A40: evaluate_value can report value in sharp (Pinnacle) via soft-side fair → arbitrage, not value; low confidence 0.50
+- [accepted] A37: dshh sandbox has no .venv/bookmakers.* — python probes only local, dshh only grep/read/new-file
+- [accepted] A18: restart bet-edge-bot after tg_bot.py edits (A18 confirmed ×2 this session)
 - [accepted] dshh+gpt-4o-mini rewrote tg_bot.py (A36, 2026-11-08), recovered via git checkout; dshh restricted to probe/new-file/EVR only
 - [accepted] OMNIROUTE_API_KEY in d213654:.env history sha256 19dd3f2db040 — rotated, not exploitable
 - [accepted] ~/NEE/.env leaked OMNIROUTE_API_KEY sha256 fd7412672e33 (2026-11-08 chat) — tested 401, dead; file removed
