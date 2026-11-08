@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -uo pipefail
+# Ensure dshh/npm-global on PATH even when run from cron/systemd (no login shell).
+export PATH="$HOME/NEE/bin:$HOME/.npm-global/bin:$PATH"
 
 ORCH_HOME="${DSH_ORCH_HOME:-$HOME/.dsh-orch}"
 REPO="${DSH_ORCH_REPO:-$HOME/BET-ANALYZER}"
