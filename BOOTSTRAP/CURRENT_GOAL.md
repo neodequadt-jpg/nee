@@ -35,6 +35,8 @@ No active goal.
 - G-0016: API-Football fallback для resolver (нужен free key)
 
 ## Tech debt (triaged 2026-10-26)
+- [accepted] OMNIROUTE_API_KEY in d213654:.env history sha256 19dd3f2db040 — rotated, not exploitable
+- [accepted] ~/NEE/.env leaked OMNIROUTE_API_KEY sha256 fd7412672e33 (2026-11-08 chat) — tested 401, dead; file removed
 - [accepted] dsh-orch.sh: 4 minor bugs (manage_hints unvalidated, show_history empty, git add unquoted, echo -e) — low risk, not blocking (P1+P2 fixed in 6ad57fb)
 - [open] dashboard password weak, bound to 127.0.0.1; rotate via reset-password (getpass)
 - [accepted] ~/.codex-home-from-BET-ANALYZER-20261026 (115M) retains dead-key transcript; delete after review
