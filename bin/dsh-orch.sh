@@ -111,13 +111,16 @@ read_multiline() {
     [ -z "$line" ] && break
     buf+="$line"$'\n'
   done
-  eval "$var=\$buf"
+  # Quote-safe (no eval): preserves $, ", `, \ in user input.
+  printf -v "$var" '%s' "$buf"
 }
 
 run_dsh_task() {
   local prompt="$1" dir="$2"
   echo "$prompt" > "$dir/prompt.txt"
   run_git_status > "$dir/git-before.txt"
+  # Snapshot EVR before dshh: only *new* files will be offered for move.
+  { ( cd "$REPO" 2>/dev/null && ls -1 EVR-*.md NEE/logs/EVR-*.md 2>/dev/null ) || true; } > "$dir/evr-before.txt"
   echo "${DIM}prompt     -> $dir/prompt.txt${RST}"
   echo "${DIM}git-before -> $dir/git-before.txt${RST}"
   echo
@@ -130,17 +133,26 @@ run_dsh_task() {
   echo "${BOLD}=== git status after ===${RST}"
   cat "$dir/git-after.txt"
   local moved=0
-  for p in "$REPO"/EVR-*.md "$REPO"/NEE/logs/EVR-*.md; do
-    [ -e "$p" ] || continue
-    echo
-    echo "${YEL}EVR: $p${RST}"
-    read -r -p "Move to $NEE_LOGS? [y/N] " a
-    if [[ "$a" =~ ^[Yy]$ ]]; then
-      mkdir -p "$NEE_LOGS"
-      mv "$p" "$NEE_LOGS/" && chmod 644 "$NEE_LOGS/$(basename "$p")"
-      moved=1
-    fi
-  done
+  # Diff: only EVR files that appeared *during this run*.
+  { ( cd "$REPO" 2>/dev/null && ls -1 EVR-*.md NEE/logs/EVR-*.md 2>/dev/null ) || true; } > "$dir/evr-after.txt"
+  local new_evrs
+  new_evrs=$(comm -13 "$dir/evr-before.txt" "$dir/evr-after.txt" 2>/dev/null || true)
+  if [ -n "$new_evrs" ]; then
+    # fd 3 for loop input; inner `read -p` still reads from terminal (stdin).
+    while IFS= read -r rel <&3; do
+      [ -z "$rel" ] && continue
+      local p="$REPO/$rel"
+      [ -e "$p" ] || continue
+      echo
+      echo "${YEL}EVR (new this run): $p${RST}"
+      read -r -p "Move to $NEE_LOGS? [y/N] " a
+      if [[ "$a" =~ ^[Yy]$ ]]; then
+        mkdir -p "$NEE_LOGS"
+        mv "$p" "$NEE_LOGS/" && chmod 644 "$NEE_LOGS/$(basename "$p")"
+        moved=1
+      fi
+    done 3<<< "$new_evrs"
+  fi
   [ "$moved" = 1 ] && ( cd "$REPO" && rmdir NEE/logs NEE 2>/dev/null; true )
   echo
   echo "${DIM}session: $dir${RST}"
