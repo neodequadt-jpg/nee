@@ -3,6 +3,9 @@
 No active goal.
 
 ## Recently closed
+- G-0034: raise Pinnacle ttl 300→900 — 2026-11-08 (EVR-0052)
+  - 7 keys: 84 req/hour -> 28 req/hour (3× less quota burn)
+  - x-requests-remaining 384, quota would exhaust in <1 day at ttl=300
 - G-0031: parse F_DRAW in fetch_real_today — 2026-11-08 (EVR-0050)
   - draw consensus now possible for all football (non-RPL too)
   - 0 new HTTP calls; 319/7; 2 files +3/-2
