@@ -65,6 +65,7 @@ No active goal.
 - G-0016: API-Football fallback для resolver (нужен free key)
 
 ## Tech debt (triaged 2026-10-26)
+- [open] A35 (×4: G-0027/0029/0030/0042): close-script does not auto-sync STATE.md; G-0035 close-g.sh should fix
 - [resolved] A40: evaluate_value value in sharp = arbitrage; fixed in G-0042 (EVR-0056: Shin Pinnacle fair, Fonbet value)
 - [accepted] A37: dshh sandbox has no .venv/bookmakers.* — python probes only local, dshh only grep/read/new-file
 - [accepted] A18: restart bet-edge-bot after tg_bot.py edits (A18 confirmed ×2 this session)

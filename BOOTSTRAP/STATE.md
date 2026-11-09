@@ -84,6 +84,9 @@ BET-ANALYZER
   Fonbet window 168h->360h (EPL at 304h)
 - G-0030: COMPLETED 2026-11-08 (EVR-0049)
   /start and /help added to _set_bot_menu commands list; verified via getMyCommands
+- G-0042: COMPLETED 2026-11-09 (EVR-0056)
+  scoring/devig.py shin_devig; evaluate_value: Shin(Pinnacle) fair, Fonbet value
+  A40 resolved; synthetic PASS; real 215 matches 0 value (Fonbet follows Pinnacle)
 
 ## 2026-10-12 (evening)
 - G-0014 closed: bonus_cron.py + systemd timer (61e24db, 757e6f3, 02c100f)
@@ -109,10 +112,11 @@ BET-ANALYZER
 - Bot menu: /start, /help added (EVR-0049, commit daa37ae); dshh A36 incident (rewrote file, recovered)
 
 ## 2026-11-09
-- HEAD BET-ANALYZER: 4bccb6e
+- HEAD BET-ANALYZER: b7fa1e4
 - Baseline: 319 passed, 7 skipped, 2 deselected
 - Pipeline: 195 matches (was 113), top-5 sources=2
-- cmd_value: 2 value bets (FIRST non-zero in project history)
+- cmd_value: 2 value bets pre-G-0042 (false arbitrage); 0 after Shin Pinnacle fair (correct)
 - Top-5 RU→EN aliases (96 clubs), _strip_diacritics (Atlético/Köln/Alavés)
 - Ligue 1 Pinnacle key added (was missing)
 - A18: restart bet-edge-bot after tg_bot.py changes (process holds old code)
+- G-0042: Shin devig Pinnacle -> Fonbet value (A40 resolved); value=0 after fix
