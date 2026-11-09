@@ -3,6 +3,7 @@
 No active goal.
 
 ## Recently closed
+- G-0041: expand Fonbet window 168h→360h (EPL at 304h) — 2026-11-08 (EVR-0054)
 - G-0042: reverse value direction (Shin Pinnacle, Fonbet value) — 2026-11-09 (EVR-0056)
   - scoring/devig.py: shin_devig + multiplicative fallback
   - evaluate_value: fair=Shin(Pinnacle), value candidate=Fonbet
