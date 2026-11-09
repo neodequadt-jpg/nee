@@ -128,12 +128,25 @@ run_dsh_task() {
   echo
   echo "${BOLD}=== running dshh ===${RST}"
   local rc=0
-  dshh "$prompt" 2>&1 | tee "$dir/response.txt" || rc=$?
+  local attempt
+  for attempt in 1 2; do
+    stdbuf -oL -eL timeout 180 dshh "$prompt" 2>&1 | tee "$dir/response.txt" || rc=$?
+    if [ "$rc" -ne 0 ] && grep -qE '503|resource_pressure|Service temporarily unavailable' "$dir/response.txt"; then
+      echo "${YEL}[dshh] 503 resource_pressure, retry in 30s (attempt $attempt/2)${RST}"
+      sleep 30
+      continue
+    fi
+    break
+  done
   echo
   echo "${BOLD}=== dshh exit: $rc ===${RST}"
   run_git_status > "$dir/git-after.txt"
   echo "${BOLD}=== git status after ===${RST}"
   cat "$dir/git-after.txt"
+  if [ ! -s "$dir/git-after.txt" ] && grep -qE '(successfully (created|completed|modified|updated|closed)|I (have |created |wrote |modified )|файл .* (создан|обновл[её]н))' "$dir/response.txt"; then
+    echo "${RED}${BOLD}=== [WARN A42] dshh claims success but git status is EMPTY ===${RST}"
+    echo "${RED}Possible hallucination. Check: $dir/response.txt${RST}"
+  fi
   local moved=0
   # Diff: only EVR files that appeared *during this run*.
   { ( cd "$REPO" 2>/dev/null && ls -1 EVR-*.md NEE/logs/EVR-*.md 2>/dev/null ) || true; } > "$dir/evr-after.txt"
