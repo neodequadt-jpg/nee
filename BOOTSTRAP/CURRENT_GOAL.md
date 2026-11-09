@@ -61,9 +61,6 @@ No active goal.
 - G-0043: add Betfair/odds-api.io as second sharp (value source, not just Fonbet follow)
 - G-0045: add soccer_russia_premier_league Pinnacle key (RPL value source)
 - G-0046: add Fonbet to registry with trust_score=0.75 (currently trust=0.5, deal_score низкий)
-- G-0042: reverse value direction (Pinnacle-fair as true_prob, Fonbet as soft value).
-  Current evaluate_value uses per_bk[Pinnacle]=Fonbet-only fair → value in sharp Pinnacle
-  = arbitrage, not soft-vs-sharp value. confidence 0.50 marks it. Not P0, but risky.
 - G-0015: closed (already-done in ab0eab9) — see EVR-0031
 - G-0016: API-Football fallback для resolver (нужен free key)
 
